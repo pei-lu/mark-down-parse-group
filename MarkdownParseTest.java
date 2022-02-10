@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
+
 public class MarkdownParseTest {
     @Test
     public void addition() {
@@ -18,12 +19,13 @@ public class MarkdownParseTest {
     }
     
     @Test
-    public void testLink() {
-        String[] links = {"https://something.com","some-page.html"};
-        List<String> Array4 = Arrays.asList("http:…");
-        assertSame(links, MarkdownParse.getLinks(Files.readString(Path.of("test-file.md"))));
+    public void testLink() throws IOException {
+        String regFile = Files.readString(Path.of("./test-file.md"));
+        String[] regLines = regFile.split("\n");
+        assertEquals(List.of("https://something.com","some-page.html"), MarkdownParse.getLinks(regLines));
     }
 
-    }
+
+}
 
 
