@@ -25,6 +25,26 @@ public class MarkdownParseTest {
         assertEquals(List.of("https://something.com","some-page.html"), MarkdownParse.getLinks(regLines));
     }
 
+    @Test
+    public void testSnippet1() throws IOException {
+        String regFile = Files.readString(Path.of("./Snippet1.md"));
+        String[] regLines = regFile.split("\n");
+        assertEquals(List.of("`google.com"), MarkdownParse.getLinks(regLines));
+    }
+    @Test
+    public void testSnippet2() throws IOException {
+        String regFile = Files.readString(Path.of("./Snippet2.md"));
+        String[] regLines = regFile.split("\n");
+        assertEquals(List.of("a.com", " ", "example.com"), MarkdownParse.getLinks(regLines));
+    }
+    @Test
+    public void testSnippet3() throws IOException {
+        String regFile = Files.readString(Path.of("./Snippet3.md"));
+        String[] regLines = regFile.split("\n");
+        assertEquals(List.of("https://ucsd-cse15l-w22.github.io/"), MarkdownParse.getLinks(regLines));
+    }
+
+
 
 }
 
