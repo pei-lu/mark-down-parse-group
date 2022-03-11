@@ -29,7 +29,7 @@ public class MarkdownParseTest {
     public void testSnippet1() throws IOException {
         String regFile = Files.readString(Path.of("./Snippet1.md"));
         String[] regLines = regFile.split("\n");
-        assertEquals(List.of("`google.com"), MarkdownParse.getLinks(regLines));
+        assertEquals(List.of("`google.com", "google.com" , "ucsd.edu"), MarkdownParse.getLinks(regLines));
     }
     @Test
     public void testSnippet2() throws IOException {
