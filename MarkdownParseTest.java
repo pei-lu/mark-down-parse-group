@@ -12,7 +12,7 @@ public class MarkdownParseTest {
     public void addition() {
         assertEquals(2, 1 + 1);
     }
-
+    
     @Test
     public void multiplication() {
         assertEquals(10, 5*2);
@@ -35,7 +35,7 @@ public class MarkdownParseTest {
     public void testSnippet2() throws IOException {
         String regFile = Files.readString(Path.of("./Snippet2.md"));
         String[] regLines = regFile.split("\n");
-        assertEquals(List.of("a.com", " ", "example.com"), MarkdownParse.getLinks(regLines));
+        assertEquals(List.of("a.com", "a.com(())", "example.com"), MarkdownParse.getLinks(regLines));
     }
     @Test
     public void testSnippet3() throws IOException {
